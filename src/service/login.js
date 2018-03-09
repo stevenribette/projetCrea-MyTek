@@ -1,11 +1,10 @@
 class loginService{
-    inscription(user, password, share){
+    inscription(user, pwd, share){
         db.addUser(user, pwd, share);
-        console.log(user, pwd);
-        stor.setItem("user",[user,pwd]);
+        stor.setItem("user",JSON.stringify([user,pwd]));
         this.connexion(user,pwd);
     }
-    connexion(user,password){
+    connexion(user,pwd){
         var userId = db.checkUser(user, pwd);
         if(userId!=false){
             toggleDisplay("navbar-menu");
@@ -15,7 +14,6 @@ class loginService{
     retrieveUser(){
         if(stor.getItem("user")!=false){
             var userData = stor.getItem("user");
-            console.log(userData);
             this.connexion(userData.user, userData.pwd)
         }else{
             loginComponent.connexionTemplate();

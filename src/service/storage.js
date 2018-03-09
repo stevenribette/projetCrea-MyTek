@@ -8,7 +8,6 @@ class storageService{
         }
     }
     setItem(key,val){
-        console.log(val);
         if(typeof val == "array"){
             val = JSON.stringify(val);
         }

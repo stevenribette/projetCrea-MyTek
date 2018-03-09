@@ -18,7 +18,7 @@
         <nav class="navbar navbar-inverse" style="margin-bottom:0;display:none;" id="navbar-menu">
             <div class="col-xs-12" style="text-align:center;border:1px solid white">
                 <div class="col-xs-3"><a onclick="menuGo()"><img style="margin:2%;display:inline;" id="parambtn" class="img-responsive buton-menu-icon" src="img/icon/menu.png"/></a></div>
-                <div class="col-xs-9"><a onclick=""><img style="margin:2%;display:inline;margin-left:85%" id="addentitebtn" class="img-responsive buton-menu-icon" src="img/icon/plus.png"/></a></div>
+                <div class="col-xs-9"><a onclick=""><img style="margin:2%;display:inline;margin-left:85%" id="addentitebtn" class="img-responsive buton-menu-icon" src="img/icon/search.png"/></a></div>
             </div>
         </nav>
         <div class="app">
@@ -51,11 +51,14 @@
         }
         function init(){
             loadScript("src/menu/menu.js", initMenu);
+
+            loadScript("src/user/user.js", initUser);
+
             loadScript("src/service/storage.js", initStorage);
             loadScript("src/service/db.js", initDb);
             loadScript("src/service/login.js", nothing);
+            
             loadScript("src/login/login.js", initLogin);
-            loadScript("src/user/user.js", initUser);
         }
         function nothing(){
 
