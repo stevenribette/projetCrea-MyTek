@@ -8,7 +8,7 @@ class loginService{
         var userId = db.checkUser(user, pwd);
         if(userId!=false){
             toggleDisplay("navbar-menu");
-            userComponent.userTemplate();
+            //userComponent.userTemplate();
         }
     }
     retrieveUser(){
@@ -16,7 +16,7 @@ class loginService{
             var userData = stor.getItem("user");
             this.connexion(userData.user, userData.pwd)
         }else{
-            loginComponent.connexionTemplate();
+            loginComponent.template();
         }
     }
     disconnexion(){

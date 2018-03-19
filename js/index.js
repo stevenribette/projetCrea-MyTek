@@ -61,3 +61,14 @@ function getDB(fct, param) {
 function postDB(fct, param) {
     $.post( apiUrl+fct, param );
 }
+function loadView(view){
+    try{
+        eval(view+'Component').template();
+        elmt = document.getElementById('centralApp');
+        if(elmt.style.display == "none"){
+            menuGo();
+        }
+    }catch(e){
+        //console.log(e);
+    }
+}

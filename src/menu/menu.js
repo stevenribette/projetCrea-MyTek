@@ -1,5 +1,5 @@
 class menuComponent{
-    menuTemplate(){
+    template(){
         $("#menu").load("src/menu/menu.html")
     }
 }
