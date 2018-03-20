@@ -50,10 +50,7 @@
             userComponent = new userComponent;
         }
         function initMediatek(){
-            mediatekComponent = new mediatekComponent;
-        }
-        function initFiche(){
-            ficheComponent = new ficheComponent;
+            mediatekComponent = new mediatekComponent(userComponent.getMediatek());
         }
         function initGroupe(){
             groupeComponent = new groupeComponent;
@@ -65,20 +62,22 @@
             searchComponent = new searchComponent;
         }
         function init(){
+            
             loadScript("src/menu/menu.js", initMenu);
 
+            loadScript("src/service/db.js", initDb);
+            loadScript("src/service/storage.js", initStorage);
+            
             loadScript("src/user/user.js", initUser);
             loadScript("src/mediatek/mediatek.js", initMediatek);
-            loadScript("src/fiche/fiche.js", initFiche);
+            loadScript("src/fiche/fiche.js", nothing);
             loadScript("src/groupe/groupe.js", initGroupe);
             loadScript("src/param/param.js", initParam);
             
             loadScript("src/search/search.js", initSearch);
-
-            loadScript("src/service/storage.js", initStorage);
-            loadScript("src/service/db.js", initDb);
-            loadScript("src/service/login.js", nothing);
             
+            loadScript("src/service/login.js", nothing);
+
             loadScript("src/login/login.js", initLogin);
         }
         function nothing(){
