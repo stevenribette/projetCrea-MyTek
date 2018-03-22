@@ -9,7 +9,7 @@ class userComponent{
         $("#centralApp").load("src/user/user.html");
         var uD = db.getUser(this.userId);
         setTimeout(function(){
-            $("#user_userName").replaceWith(userName);
+            $("#user_userName").replaceWith(this.userName);
             $('#user_pseudo').val(uD.name);
             $('#user_img').val(uD.img);
             //$('#user_share').val(uD.share);

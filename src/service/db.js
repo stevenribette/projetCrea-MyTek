@@ -38,6 +38,9 @@ class dbService{
     addFiche(titre, url, mediatek){
         return postDB("fiche/Add", { "fic_titre" : titre, "fic_url" : url, "mediatek_id" : mediatek });
     }
+    removeFiche(id){
+        return postDB("fiche/Remove", { "fic_id" : id });
+    }
 
     //###############################
     // MEDIATEK
@@ -50,15 +53,28 @@ class dbService{
         //return postDB("mediatek/GetFiche", { "mediatek_id" : id });
         return [1];
     }
+    mediatekAddFiche(med_id, fic_id){
+        return postDB("mediatek/AddFiche", { "mediatek_id" : med_id, "fic_id" : fic_id });
+    }
+    mediatekRemoveFiche(med_id, fic_id){
+        return postDB("mediatek/RemoveFiche", { "mediatek_id" : med_id, "fic_id" : fic_id });
+    }
+
+
 
     //###############################
     // GROUPE
     //###############################
     getGroupe(id){
-        return postDB("groupe/Get", { "gro_id" : id });
+        //return postDB("groupe/Get", { "gro_id" : id });
+        return { "name" : "Aventuriers", "img" : "http://bloper97.fr/img/logo.png" };
     }
-    getGroupeUser(id){
-        return postDB("groupe/GetUser", { "gro_id" : id });
+    getGroupeUsers(id){
+        return postDB("groupe/GetUsers", { "gro_id" : id });
+    }
+    userGetGroupes(id){
+        //return postDB("groupe/UserGetGroupes", { "use_id" : id });
+        return [1];
     }
     setGroupeImg(id,img){
         return postDB("groupe/SetImg", { "gro_id" : id, "prm_img" : img });
@@ -68,6 +84,15 @@ class dbService{
     }
     setGroupeShare(id,share){
         return postDB("groupe/SetShare", { "gro_id" : id, "prm_share" : share });
+    }
+    groupeAddUser(gro_id, use_id){
+        return postDB("groupe/AddUser", { "gro_id" : gro_id, use_id : use_id });
+    }
+    groupeRemoveUser(gro_id, use_id){
+        return postDB("groupe/RemoveUser", { "gro_id" : gro_id, use_id : use_id });
+    }
+    removeGroupe(id){
+        return postDB("groupe/Remove", { "gro_id" : id });
     }
 
     //###############################
@@ -103,7 +128,7 @@ class dbService{
         return postDB("visionner/Get", { "use_id" : use_id, "fic_id" : fic_id });
     }
     addVisionner(use_id, fic_id){
-        return postDB("visionner/Add", { "use_id" : use_id, "fic_id" : fic_id, "prm_status" : "Non visionnée" });
+        return postDB("visionner/Add", { "use_id" : use_id, "fic_id" : fic_id, "prm_status" : 0 });
     }
     setVisionner(use_id, fic_id, status){
         return postDB("visionner/Set", { "use_id" : use_id, "fic_id" : fic_id, "prm_status" : status });
