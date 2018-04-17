@@ -9,13 +9,14 @@ class dbService{
         return { "name" : "A", "img" : '', "share" : false };
     }
     addUser(user,pwd,share){
-        return postDB("user/Add", { "prm_name" : user, "prm_pwd" : pwd, "prm_share" : share });
+        //return postDB("user/Add", { "prm_name" : user, "prm_pwd" : pwd, "prm_share" : share });
+        return 1;
     }
     removeUser(){
         return postDB("user/Remove", { "use_id" : id });
     }
     checkUser(user,pwd){
-        postDB("user/Check", { "prm_user" : user, "prm_pwd" : pwd });
+        //return postDB("user/Check", { "prm_user" : user, "prm_pwd" : pwd });
         return 1;
     }
     setUserImg(id,img){

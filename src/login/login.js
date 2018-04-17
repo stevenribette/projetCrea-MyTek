@@ -40,11 +40,34 @@ class loginComponent{
         var us = $('#login_user').val();
         var pw = $('#login_pwd').val();
         var sh = $('#login_share').val();
-        loginService.inscription(us, pw, sh);
+        //loginService.inscription(us, pw, sh);
+        var usId = db.addUser(us, pw, sh);
+        stor.setItem("user",JSON.stringify([usId,us,pw]));
+        this.connect(us,pw);
     }
     connexion(){
         var us = $("#login_user").val();
         var pw = $("#login_pwd").val();
-        loginService.connexion(us, pw);
+        this.connect(us,pw);
+    }
+    connect(user,pwd){
+        var userId = db.checkUser(user, pwd);
+        if(userId != false){
+            toggleDisplay("navbar-menu");
+            stor.setItem("user",JSON.stringify([userId,user,pwd]));
+            mediatekComponent.template();
+        }
+    }
+    retrieveUser(){
+        if(stor.getItem("user")){
+            var userData = stor.getItem("user");
+            this.connect(userData[1], userData[2])
+        }else{
+            this.connexionTemplate();
+        }
+    }
+    disconnexion(){
+        stor.removeItem("user");
+        return true;
     }
 }
