@@ -1,5 +1,8 @@
 <StackLayout>
-  <Label class="h1 title"
-    text="login Is working"></Label>
+  <TextField hint="Email Address" keyboardType="email" [(ngModel)]="email"
+    autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
+
+  <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="submit-button" (tap)="submit()"></Button>
+  <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
 </StackLayout>
-<p>Bite</p>
