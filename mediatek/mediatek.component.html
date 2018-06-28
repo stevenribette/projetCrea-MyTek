@@ -1,0 +1,12 @@
+<StackLayout>
+    <GridLayout rows="auto auto" columns="* *" class="m-5">
+        <TextField row="0" col="0" hint="Search" [(ngModel)]="search" class="input"></TextField>
+        <Button row="0" col="1" class="btn btn-primary btn-active" id="button" text="SEARCH" (tap)="doSearch()"></Button>
+    </GridLayout>
+
+    <Image *ngFor="let fi of fiches" [src]="fi.fic_img" stretch="none" class="img-rounded" (tap)="goTo(fi.fic_id)"></Image>
+
+    <StackLayout *ngIf="search != null">
+        <Image *ngFor="let s of searchs" [src]="s.poster" stretch="none" class="img-rounded"></Image>
+    </StackLayout>
+</StackLayout>

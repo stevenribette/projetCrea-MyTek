@@ -1,0 +1,10 @@
+<StackLayout>
+    <Label [text]="name" textWrap="true"></Label>
+    <Image [src]="img" stretch="none" class="img-rounded"></Image>
+    <Label [text]="url" textWrap="true"></Label>
+
+    <Label text="Commentaire:" textWrap="true"></Label>
+    <StackLayout *ngFor="let c of avis">
+        <Label [text]="c.use_id +'_'+c.avi_contenu" textWrap="true"></Label>
+    </StackLayout>
+</StackLayout>

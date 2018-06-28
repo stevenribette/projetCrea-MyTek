@@ -1,0 +1,16 @@
+<StackLayout>
+    <Label [text]="'Bonjour '+pseudo" textWrap="true"></Label>
+
+    <TextField hint="Pseudo" [(ngModel)]="pseudo" autocorrect="false" autocapitalizationType="none" class="input"></TextField>
+
+    <TextField hint="Img_link" [(ngModel)]="img" autocorrect="false" autocapitalizationType="none" class="input"></TextField>
+
+    <Image [src]="img" stretch="none" class="img-rounded"></Image>
+
+    <GridLayout rows="auto auto" columns="* *" class="m-5">
+        <Label row="0" col="0" text="Private mediatek" textWrap="true"></Label>
+        <Switch row="0" col="1" class="m-15" checked="false" [(ngModel)]="shared"></Switch>
+    </GridLayout>
+
+  <Button text="Edit" class="btn btn-primary" (tap)="editData()"></Button>
+</StackLayout>

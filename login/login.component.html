@@ -1,8 +1,14 @@
 <StackLayout>
-  <TextField hint="Email Address" keyboardType="email" [(ngModel)]="email"
-    autocorrect="false" autocapitalizationType="none"></TextField>
-  <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
+  <TextField hint="Pseudo" [(ngModel)]="pseudo"
+    autocorrect="false" autocapitalizationType="none" class="input"></TextField>
+  <TextField hint="Password" secure="true" [(ngModel)]="password" class="input"></TextField>
 
-  <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="submit-button" (tap)="submit()"></Button>
-  <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
+  <GridLayout *ngIf="!isLoggingIn" rows="auto auto" columns="* *" class="m-5">
+    <Label row="0" col="0" text="Private mediatek" textWrap="true"></Label>
+    <Switch row="0" col="1" class="m-15" checked="false" [(ngModel)]="shared"></Switch>
+  </GridLayout>
+
+  <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="btn btn-primary" (tap)="submit()"></Button>
+  <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" class="btn btn-outline" (tap)="toggleDisplay()"></Button>
+
 </StackLayout>

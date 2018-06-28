@@ -1,12 +1,8 @@
 <StackLayout>
-  <nav class="navbar navbar-default">
-      <div class="container-fluid">
-          <ul class="nav navbar-nav">
-              <li><a id="mediatek" onclick="loadView(this.id)">MEDIATEK</a></li>
-              <li><a id="groupes" onclick="loadView(this.id)">GROUPES</a></li>
-              <li><a id="user" onclick="loadView(this.id)">COMPTE</a></li>
-              <li><a id="param" onclick="loadView(this.id)">PARAMETRE</a></li>
-          </ul>
-      </div>
-  </nav>
+    <Button class="btn btn-primary btn-active" id="button" text="MENU" (tap)="open_close()"></Button>
+    <StackLayout  *ngIf="isOpen">
+        <Button class="btn btn-primary btn-active" id="user" text="PROFIL" (tap)="goTo('app/user')"></Button>
+        <Button class="btn btn-primary btn-active" id="groupes" text="GROUPES" (tap)="goTo('app/groupes')"></Button>
+        <Button class="btn btn-primary btn-active" id="media" text="MEDIATEK" (tap)="goTo('app/mediatek')"></Button>
+    </StackLayout>
 </StackLayout>

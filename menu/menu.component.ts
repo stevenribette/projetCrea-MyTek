@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   moduleId: module.id,
@@ -8,8 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  isOpen = false;
+  constructor(private router: Router, private routerExtensions: RouterExtensions) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+  }
+  open_close(){
+    this.isOpen = !this.isOpen;
+  }
+  goTo(link) {
+    this.isOpen = false;
+    this.routerExtensions.navigate([link]);
+  }
 
 }
